@@ -1,0 +1,55 @@
+server:
+  port: 9800
+
+spring:
+  application:
+    name: gateway
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka  # 设置与Eureka Server交互的地址查询服务和注册服务
+  instance:
+    instance-id: gateway-id
+    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true
+  eager-load:
+    enabled: true
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 10000
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 2 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+
+zuul:
+  ribbon:
+    metadata:
+      enabled: true
+  routes:
+    permission:
+      path: /permission/**
+      service-id: permission
+      sensitive-headers:
+    web-system:
+      path: /webSystem/**
+      service-id: web-system
+      sensitive-headers:
+    sports:
+      path: /sports/**
+      service-id: sports
+      sensitive-headers:
+
+info:
+  app:
+    name: gateway
+  company:
+    name: yudr
+  build:
+    artifactId: $project.artifactId$
+    version: $project.version$
