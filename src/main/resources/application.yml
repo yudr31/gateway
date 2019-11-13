@@ -10,7 +10,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:9001/eureka  # 设置与Eureka Server交互的地址查询服务和注册服务
+      defaultZone: http://eureka.gulang.work/eureka  # 设置与Eureka Server交互的地址查询服务和注册服务
   instance:
     instance-id: gateway-id
     prefer-ip-address: true
