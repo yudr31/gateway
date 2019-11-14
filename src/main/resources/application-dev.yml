@@ -5,3 +5,10 @@ eureka:
   instance:
     instance-id: gateway-id
     prefer-ip-address: true
+
+spring:
+  cloud:
+    config:
+      name: ${spring.application.name}
+      profile: dev
+      uri: http://120.24.60.86:9700
