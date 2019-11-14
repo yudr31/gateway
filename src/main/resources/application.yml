@@ -7,14 +7,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka.gulang.work/eureka  # 设置与Eureka Server交互的地址查询服务和注册服务
-  instance:
-    instance-id: gateway-id
-    prefer-ip-address: true
-
 feign:
   hystrix:
     enabled: true
