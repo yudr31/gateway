@@ -7,4 +7,4 @@ WORKDIR /home
 
 EXPOSE 9800
 
-CMD ["java", "-jar", "gateway.jar"]
+CMD ["java", "-jar", "-Dspring.profiles.active=dev", "gateway.jar"]
